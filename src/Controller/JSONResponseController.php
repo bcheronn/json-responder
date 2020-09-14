@@ -13,8 +13,9 @@ class JSONResponseController extends AbstractController
     public function index()
     {
         return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/JSONResponseController.php',
+            "message" => "Welcome to your new controller!",
+            "path" => "src/Controller/JSONResponseController.php",
+            "purpose" => "Create a project using Symfony serving a JSON response"
         ]);
     }
 }
