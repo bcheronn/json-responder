@@ -1,3 +1,3 @@
 # JSON Responder
 
-A controler which serves a JSON response
+A controller which serves a JSON response
