@@ -2,15 +2,29 @@
 
 namespace App\Controller;
 
+use App\Repository\GameRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 class GamesController extends AbstractController
 {
     /**
-     * @Route("/games/hardcoded", name="games_hardcoded")
+     * @Route("/games", name="games")
+     * @return JsonResponse
      */
-    public function hard_coded_games()
+    public function games_index(GameRepository $gameRepository): JsonResponse
+    {
+        $products = $gameRepository->findAll();
+
+        return $this->json($products);
+    }
+
+    /**
+     * @Route("/games/hardcoded", name="games_hardcoded")
+     * @return JsonResponse
+     */
+    public function hard_coded_games(): JsonResponse
     {
         return $this->json(["games" =>
         [
