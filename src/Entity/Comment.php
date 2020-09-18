@@ -8,20 +8,20 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=CommentRepository::class)
  */
-class Comment
+class Comment implements \JsonSerializable
 {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-       */
+     */
     private $id;
 
     /**
      * @ORM\Column(type="text")
      */
     private $content;
-    
+
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -89,5 +89,20 @@ class Comment
         $this->game = $game;
 
         return $this;
+    }
+
+    /**
+     * function jsonSerialize: implements JsonSerializable
+     * @return array
+     */
+    public function jsonSerialize(): array
+    {
+        return [
+            "id" => $this->getId(),
+            "content" => $this->getContent(),
+            "author" => $this->getAuthor(),
+            "date" => $this->getDate(),
+            "game" => $this->getGame()
+        ];
     }
 }

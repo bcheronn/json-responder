@@ -96,9 +96,13 @@ class Platform implements \JsonSerializable
         return $this;
     }
 
-    public function jsonSerialize()
+    /**
+     * function jsonSerialize: implements JsonSerializable
+     * @return array
+     */
+    public function jsonSerialize(): array
     {
-        return[
+        return [
             "id" => $this->getId(),
             "name" => $this->getName(),
             "description" => $this->getDescription()
