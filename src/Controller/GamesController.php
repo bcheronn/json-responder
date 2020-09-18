@@ -8,9 +8,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class GamesController extends AbstractController
 {
     /**
-     * @Route("/games", name="games")
+     * @Route("/games/hardcoded", name="games_hardcoded")
      */
-    public function index()
+    public function hard_coded_games()
     {
         return $this->json(["games" =>
         [
