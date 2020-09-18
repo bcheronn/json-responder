@@ -40,24 +40,24 @@ class Game
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity=platform::class, inversedBy="games")
+     * @ORM\ManyToMany(targetEntity=Platform::class, inversedBy="games")
      */
     private $platform;
 
     /**
-     * @ORM\ManyToOne(targetEntity=genre::class, inversedBy="games")
+     * @ORM\ManyToOne(targetEntity=Genre::class, inversedBy="games")
      * @ORM\JoinColumn(nullable=false)
      */
     private $genre;
 
     /**
-     * @ORM\ManyToOne(targetEntity=publisher::class, inversedBy="games")
+     * @ORM\ManyToOne(targetEntity=Publisher::class, inversedBy="games")
      * @ORM\JoinColumn(nullable=false)
      */
     private $publisher;
 
     /**
-     * @ORM\OneToMany(targetEntity=comment::class, mappedBy="game", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="game", orphanRemoval=true)
      */
     private $comments;
 
