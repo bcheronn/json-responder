@@ -3,14 +3,16 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 class JSONResponseController extends AbstractController
 {
     /**
      * @Route("/json/response", name="json_response")
+     * @return JsonResponse
      */
-    public function index()
+    public function index(): JsonResponse
     {
         return $this->json([
             "message" => "Welcome to your new controller!",

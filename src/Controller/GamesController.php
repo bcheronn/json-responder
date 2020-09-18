@@ -11,20 +11,19 @@ class GamesController extends AbstractController
 {
     /**
      * @Route("/games", name="games")
+     * @param GameRepository $gameRepository
      * @return JsonResponse
      */
-    public function games_index(GameRepository $gameRepository): JsonResponse
+    public function list_games(GameRepository $gameRepository): JsonResponse
     {
-        $products = $gameRepository->findAll();
-
-        return $this->json($products);
+        return $this->json($gameRepository->findAll());
     }
 
     /**
      * @Route("/games/hardcoded", name="games_hardcoded")
      * @return JsonResponse
      */
-    public function hard_coded_games(): JsonResponse
+    public function list_hardcoded_games(): JsonResponse
     {
         return $this->json(["games" =>
         [

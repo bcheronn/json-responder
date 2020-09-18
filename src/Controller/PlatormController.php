@@ -10,11 +10,10 @@ class PlatormController extends AbstractController
 {
     /**
      * @Route("/platforms", name="platforms")
+     * @param PlatformRepository $platformRepository
      */
-    public function platforms_index(PlatformRepository $platformRepository)
+    public function list_platforms(PlatformRepository $platformRepository)
     {
-        $platforms = $platformRepository->findAll();
-
-        return $this->json($platforms);
+        return $this->json($platformRepository->findAll());
     }
 }
