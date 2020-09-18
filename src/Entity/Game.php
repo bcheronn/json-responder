@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=GameRepository::class)
  */
-class Game
+class Game implements \JsonSerializable
 {
     /**
      * @ORM\Id
@@ -177,7 +177,7 @@ class Game
     {
         return $this->comments;
     }
-
+    
     public function addComment(comment $comment): self
     {
         if (!$this->comments->contains($comment)) {
@@ -199,5 +199,24 @@ class Game
         }
 
         return $this;
+    }
+
+    /**
+     * function jsonSerialize: implements JsonSerializable
+     * @return array
+     */
+    public function jsonSerialize(): array
+    {
+        return [
+            "id" => $this->getId(),
+            "name" => $this->getName(),
+            "description" => $this->getDescription(),
+            "year_published" => $this->getYearPublished(),
+            "image_url" => $this->getImageURL(),
+            "platform" => $this->getPlatform(),
+            "genre" => $this->getGenre(),
+            "publisher" => $this->getPublisher(),
+            "comments" => $this->getComments()
+        ];
     }
 }
