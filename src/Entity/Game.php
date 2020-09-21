@@ -214,8 +214,8 @@ class Game implements \JsonSerializable
             "year_published" => $this->getYearPublished(),
             "image_url" => $this->getImageURL(),
             "platforms" => $this->getPlatforms(),
-            "genre" => $this->getGenre(),
-            "publisher" => $this->getPublisher(),
+            "genre" => $this->getGenre()->getName(),
+            "publisher" => $this->getPublisher()->getName(),
             "comments" => $this->getComments()
         ];
     }
