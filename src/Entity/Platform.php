@@ -30,7 +30,7 @@ class Platform implements \JsonSerializable
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Game::class, mappedBy="platform")
+     * @ORM\ManyToMany(targetEntity=Game::class, mappedBy="platforms")
      */
     private $games;
 

@@ -42,7 +42,7 @@ class Game implements \JsonSerializable
     /**
      * @ORM\ManyToMany(targetEntity=Platform::class, inversedBy="games")
      */
-    private $platform;
+    private $platforms;
 
     /**
      * @ORM\ManyToOne(targetEntity=Genre::class, inversedBy="games")
@@ -63,7 +63,7 @@ class Game implements \JsonSerializable
 
     public function __construct()
     {
-        $this->platform = new ArrayCollection();
+        $this->platforms = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
 
@@ -121,26 +121,26 @@ class Game implements \JsonSerializable
     }
 
     /**
-     * @return Collection|platform[]
+     * @return Collection|Platform[]
      */
-    public function getPlatform(): Collection
+    public function getPlatforms(): Collection
     {
-        return $this->platform;
+        return $this->platforms;
     }
 
-    public function addPlatform(platform $platform): self
+    public function addPlatform(Platform $platform): self
     {
-        if (!$this->platform->contains($platform)) {
-            $this->platform[] = $platform;
+        if (!$this->platforms->contains($platform)) {
+            $this->platforms[] = $platform;
         }
 
         return $this;
     }
 
-    public function removePlatform(platform $platform): self
+    public function removePlatform(Platform $platform): self
     {
-        if ($this->platform->contains($platform)) {
-            $this->platform->removeElement($platform);
+        if ($this->platforms->contains($platform)) {
+            $this->platforms->removeElement($platform);
         }
 
         return $this;
@@ -177,7 +177,7 @@ class Game implements \JsonSerializable
     {
         return $this->comments;
     }
-    
+
     public function addComment(comment $comment): self
     {
         if (!$this->comments->contains($comment)) {
@@ -213,7 +213,7 @@ class Game implements \JsonSerializable
             "description" => $this->getDescription(),
             "year_published" => $this->getYearPublished(),
             "image_url" => $this->getImageURL(),
-            "platform" => $this->getPlatform(),
+            "platforms" => $this->getPlatforms(),
             "genre" => $this->getGenre(),
             "publisher" => $this->getPublisher(),
             "comments" => $this->getComments()
