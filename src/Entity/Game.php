@@ -213,10 +213,10 @@ class Game implements \JsonSerializable
             "description" => $this->getDescription(),
             "year_published" => $this->getYearPublished(),
             "image_url" => $this->getImageURL(),
-            "platforms" => $this->getPlatforms(),
+            "platforms" => $this->getPlatforms()->toArray(),
             "genre" => $this->getGenre()->getName(),
-            "publisher" => $this->getPublisher()->getName(),
-            "comments" => $this->getComments()
+            "publisher" => $this->getPublisher()->getName()
+            // "comments" => $this->getComments()->toArray()
         ];
     }
 }

@@ -106,6 +106,7 @@ class Platform implements \JsonSerializable
             "id" => $this->getId(),
             "name" => $this->getName(),
             "description" => $this->getDescription()
+            // "games" => $this->getGames()->toArray()
         ];
     }
 }
