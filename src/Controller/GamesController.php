@@ -24,9 +24,9 @@ class GamesController extends AbstractController
      * @param GameRepository $gameRepository
      * @return JsonResponse
      */
-    public function get_game(GameRepository $gameRepository): JsonResponse
+    public function get_game(GameRepository $gameRepository, int $id = 1): JsonResponse
     {
-        return $this->json($gameRepository->findAll());
+        return $this->json($gameRepository->find($id));
     }
 
     /**
