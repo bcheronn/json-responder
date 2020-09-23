@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class JSONResponseController extends AbstractController
 {
     /**
-     * @Route("/json/response", name="json_response")
+     * @Route("/json/response")
      * @return JsonResponse
      */
     public function index(): JsonResponse

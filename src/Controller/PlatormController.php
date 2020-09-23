@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PlatormController extends AbstractController
 {
     /**
-     * @Route("/platforms", name="platforms")
+     * @Route("/platforms")
      * @param PlatformRepository $platformRepository
      */
     public function list_platforms(PlatformRepository $platformRepository)

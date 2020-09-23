@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CommentController extends AbstractController
 {
     /**
-     * @Route("/comments", name="comments")
+     * @Route("/comments")
      * @param CommentRepository $commentRepository
      */
     public function list_comments(CommentRepository $commentRepository)

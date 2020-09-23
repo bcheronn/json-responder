@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class GamesController extends AbstractController
 {
     /**
-     * @Route("/games", name="games")
+     * @Route("/games")
      * @param GameRepository $gameRepository
      * @return JsonResponse
      */
@@ -20,7 +20,17 @@ class GamesController extends AbstractController
     }
 
     /**
-     * @Route("/games/hardcoded", name="games_hardcoded")
+     * @Route("/game/{id}")
+     * @param GameRepository $gameRepository
+     * @return JsonResponse
+     */
+    public function get_game(GameRepository $gameRepository): JsonResponse
+    {
+        return $this->json($gameRepository->findAll());
+    }
+
+    /**
+     * @Route("/games/hardcoded")
      * @return JsonResponse
      */
     public function list_hardcoded_games(): JsonResponse
