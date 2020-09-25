@@ -101,8 +101,7 @@ class Comment implements \JsonSerializable
             "id" => $this->getId(),
             "content" => $this->getContent(),
             "author" => $this->getAuthor(),
-            "date" => $this->getDate()
-            // "game" => $this->getGame()
+            "date" => $this->getDate()->format("d/m/Y H:i")
         ];
     }
 }
